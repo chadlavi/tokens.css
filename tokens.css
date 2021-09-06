@@ -258,17 +258,17 @@
   --size-screen: 100vw;
   --size-min: min-content;
   --size-max: max-content;
-  --width-xs: 20rem;
-  --width-sm: 24rem;
-  --width-md: 28rem;
-  --width-lg: 32rem;
-  --width-xl: 36rem;
-  --width-2xl: 42rem;
-  --width-3xl: 48rem;
-  --width-4xl: 56rem;
-  --width-5xl: 64rem;
-  --width-6xl: 72rem;
-  --width-7xl: 80rem;
+  --max-width-xs: 20rem;
+  --max-width-sm: 24rem;
+  --max-width-md: 28rem;
+  --max-width-lg: 32rem;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
   
   /* TEXT */
 
@@ -300,24 +300,26 @@
   --line-height-normal: 1.5;
   --line-height-lg: 1.625;
   --line-height-xl: 2;
+
   --letter-spacing-000: -0.05em;
   --letter-spacing-00: -0.025em;
   --letter-spacing-0: 0;
   --letter-spacing-1: 0.025em;
   --letter-spacing-2: 0.05em;
   --letter-spacing-3: 0.1em;
-  --paragraph-narrow: 20em;
-  --paragraph-normal: 30em;
-  --paragraph-wide: 34em;
+
+  --paragraph-narrow: 40ch;
+  --paragraph-normal: 80ch;
+  --paragraph-wide: 120ch;
   
   /* SHADOW */
 
-  --elevation-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --elevation-1: 0 0px 3px 0 rgba(0, 0, 0, 0.07);
   --elevation-2: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --elevation-3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --elevation-4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --elevation-5: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --elevation-6: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --elevation-3: 0 1px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --elevation-4: 0 2px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --elevation-5: 0 3px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --elevation-6: 0 4px 50px -12px rgba(0, 0, 0, 0.25);
 
   /* ANIMATION */
 
@@ -327,15 +329,15 @@
 
   /* BORDERS */
 
-  --radius-none: 0px;
-  --radius-sm: 0.125rem;
-  --radius: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
-  --radius-full: 9999px;
+  --radius-0: 0px;
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 4rem;
+  --radius-3xl: 6rem;
+  --radius-round: 9999px;
 
   /* Z-INDEX */
 
@@ -344,5 +346,6 @@
   --layer-3: 30;
   --layer-4: 40;
   --layer-5: 50;
+  --layer-6: 60;
   --layer-top: 2147483647;
 }

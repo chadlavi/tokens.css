@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tokens.css</title>
+  <link rel="stylesheet" href="./tokens.css" />
+</head>
+<style>
+  :root {
+    font-family: var(--font-family-sans);
+    color: var(--color-black);
+  }
+
+  .top-link {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-regular);
+  }
+
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a {
+    color: inherit;
+  }
+
+  p {
+    max-width: var(--paragraph-normal);
+    line-height: var(--line-height-normal);
+  }
+
+  :not(pre) > code {
+    font-size: var(--font-size-00);
+    background-color: var(--color-cyan-50);
+    padding: var(--size-1);
+    border-radius: var(--radius);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  code {
+    font-family: var(--font-family-mono);
+  }
+
+  pre {
+    background-color: var(--color-sky-50);
+    padding: var(--size-4);
+    max-width: var(--max-width-4xl);
+    border-radius: var(--radius);
+    overflow-x: auto;
+  }
+
+  .data {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-000);
+  }
+
+  .color-family {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .color-family .color-tone {
+    height: var(--size-24);
+    width: var(--size-24);
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    box-sizing: border-box;
+    flex-grow: 1;
+  }
+
+  .color-family .color-tone .title {
+    background-color: var(--color-white);
+    padding: var(--size-1);
+    font-size: var(--font-size-000);
+  }
+
+  .spacer-wrapper {
+    --margin: 0;
+    --width: var(--size-4);
+    --height: var(--width);
+  }
+
+  .spacer-wrapper+.spacer-wrapper {
+    margin-top: var(--size-2);
+  }
+
+  .square {
+    margin-right: var(--margin);
+    width: var(--width);
+    height: var(--height);
+    background: var(--color-pink-100);
+  }
+
+  .text-spec {
+    margin-bottom: var(--size-2);
+  }
+
+  .card {
+    margin: var(--size-16) var(--size-8);
+    padding: var(--size-8);
+    border-radius: var(--radius-md);
+  }
+
+  .animated-wrapper {
+    display: flex;
+    align-items: center;
+    margin: var(--size-4) 0;
+  }
+
+  .animated-title {
+    width: var(--size-24);
+  }
+
+  .animated {
+    width: var(--size-24);
+    height: var(--size-24);
+    background-color: var(--color-brown-200);
+    border: 1px solid var(--color-brown);
+    box-sizing: border-box;
+    border-radius: var(--radius-round);
+  }
+  .animated:hover {
+    transform: scale(0.5);
+  }
+  .radius-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-8);
+  }
+  .radius {
+    padding: var(--size-8);
+    border: 1px solid var(--color-orange-900);
+    background-color: var(--color-orange-100);
+    width: var(--size-44);
+    height: var(--size-44);
+    max-width: var(--size-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .layers-container {
+    position: relative;
+    height: var(--size-96);
+  }
+  .layer {
+    position: absolute;
+    bottom: 0;
+    padding: var(--size-2);
+    box-sizing: border-box;
+    border-radius: var(--radius);
+    font-family: var(--font-family-mono );
+  }
+  .layer-1 {
+    width: calc(var(--size-full) * 0.97);
+    background-color: var(--color-purple-100);
+    height: var(--size-96);
+  }
+  .layer-2 {
+    width: calc(var(--size-full) * 0.95);
+    background-color: var(--color-purple-200);
+    height: var(--size-80);
+    right: 0;
+  }
+  .layer-3 {
+    width: calc(var(--size-full) * 0.9);
+    background-color: var(--color-purple-300);
+    height: var(--size-64);
+    left: var(--size-4);
+  }
+  .layer-4 {
+    width: calc(var(--size-full) * 0.85);
+    background-color: var(--color-purple-400);
+    height: var(--size-48);
+    right: 0;
+  }
+  .layer-5 {
+    width: calc(var(--size-full) * 0.8);
+    background-color: var(--color-purple-500);
+    height: var(--size-32);
+    color: var(--color-white);
+  }
+  .layer-6 {
+    width: calc(var(--size-full) * 0.75);
+    background-color: var(--color-purple-600);
+    height: var(--size-20);
+    color: var(--color-white);
+    right: 0;
+  }
+  .layer-top {
+    width: calc(var(--size-full) * 0.7);
+    background-color: var(--color-purple-700);
+    height: var(--size-10);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+  <script type="module">
+    "use strict";
+    import {
+      html,
+      render,
+    } from "https://unpkg.com/htm@3.1.0/preact/standalone.module.js";
+
+    const colors = [
+      "red",
+      "pink",
+      "purple",
+      "violet",
+      "indigo",
+      "blue",
+      "sky",
+      "cyan",
+      "teal",
+      "green",
+      "pea",
+      "lime",
+      "yellow",
+      "amber",
+      "orange",
+      "salmon",
+      "brown"
+    ]
+
+    const tones = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+
+    const sizes = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      72,
+      80,
+      96,
+    ]
+
+    const widths = [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "3xl",
+      "4xl",
+      "5xl",
+      "6xl",
+      "7xl",
+    ]
+
+    const fontSizes = [
+      "000",
+      "00",
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+
+    const fontFamilies = ["sans", "serif", "mono"]
+
+    const fontWeights = ["light", "regular", "medium", "semibold", "bold", "black"]
+
+    const lineHeights = ["1", "xs", "sm", "normal", "lg", "xl"]
+
+    const letterSpacings = ["000", "00", 0, 1, 2, 3]
+
+    const paragraphWidths = ["narrow", "normal", "wide"]
+
+    const elevations = [1, 2, 3, 4, 5, 6]
+
+    const animations = ["standard", "accelerate", "decelerate"]
+
+    const radii = [0, "sm", "", "md", "lg", "xl", "2xl", "3xl", "round"]
+
+    const layers = [1, 2, 3, 4, 5, 6, "top"]
+
+    const App = () => {
+      return html`
+        <h1 id="top"><a target="_blank" href="https://github.com/chadlavi/tokens.css">Tokens.css</a></h1>
+        <p>This is a library of basic CSS tokens.</p>
+        <p>Use in your HTML with</p>
+        <pre>
+          <code>
+            ${'<link rel="stylesheet" href="https://chadlavi.github.io/tokens.css/tokens.css" />'}
+          </code>
+        </pre>
+        <ul id="index">
+          <li><a href="#colors">Colors</a></li>
+          <li>
+            <a href="#layout">Layout</a>
+            <ul>
+              <li><a href="#size">Size</a></li>          
+              <li><a href="#maxwidth">Max width</a></li>          
+            </ul>
+          </li>
+          <li>
+            <a href="#text">Text</a>
+            <ul>
+              <li><a href="#fontsize">Font size</a></li>          
+              <li><a href="#fontfamily">Font family</a></li>          
+              <li><a href="#fontweight">Font weight</a></li>          
+              <li><a href="#lineheight">Line height</a></li>          
+              <li><a href="#letterspacing">Letter spacing</a></li>          
+              <li><a href="#paragraphwidth">Paragraph width</a></li>          
+            </ul>
+          </li>
+          <li><a href="#shadow">Shadow</a></li>
+          <li><a href="#animation">Animation</a></li>
+          <li><a href="#borderradius">Border radius</a></li>
+          <li><a href="#zindex">Z-index</a></li>
+        </ul>
+        <h2 id="colors"><a href="#colors">Colors</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <div class="color-family">
+          <div title="--color-white" class="color-tone data" style="background-color: var(--color-white); box-sizing: border-box; border: 1px solid var(--color-black);">
+            <div class="title">white</div>
+          </div>
+          <div title="--color-black" class="color-tone data" style="background-color: var(--color-black); box-sizing: border-box; border: 1px solid var(--color-black); border-left: none;">
+            <div class="title">black</div>
+          </div>
+        </div>
+        ${colors.map(color => html`
+            <div class="color-family">
+              ${tones.map(tone => html`
+                <div title="--color-${color}-${tone}" class="color-tone data" style="background-color:  var(--color-${color}-${tone});">
+                  <div class="title">
+                    ${color} ${tone}
+                  </div>
+                </div>
+                `)}
+            </div>
+          `
+      )}
+        <h2 id="layout"><a href="#layout">Layout</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <h3 id="size"><a href="#size">Size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        <p>Each <code>size</code> unit is equal to <code>0.25rem</code>. Divide the size unit number by 4 to determine how many rem it is.</p>
+        <p><code>size</code> units are shown here as the width of a box, but can also be used for padding, margins, heights -- any <code>px</code> measurement.</p>
+        ${sizes.map(size => html`
+            <div class="spacer-wrapper" title="--size-${size}">
+              <div class="data">--size-${size} (${size / 4}rem)</div>
+              <div class="square" style="--width: var(--size-${size});"></div>
+            </div>
+          `)}
+        <p>There are also some special sizes:</p>
+        <div class="spacer-wrapper" title="--size-0">
+          <div class="data">--size-0 (0px)</div>
+          <div class="square" style="--width: var(--size-0);"></div>
+        </div>
+        <div class="spacer-wrapper" title="--size-px">
+          <div class="data">--size-px (1px)</div>
+          <div class="square" style="--width: var(--size-px);"></div>
+        </div>
+        <div class="spacer-wrapper" title="--size-full">
+          <div class="data">--size-full (100%)</div>
+          <div class="square" style="--width: var(--size-full);"></div>
+        </div>
+        <div class="spacer-wrapper" title="--size-screen">
+          <div class="data">--size-screen (100vw)</div>
+          <div class="square" style="--width: var(--size-screen); margin-left: -8px; margin-right: -8px; box-sizing: border-box;"></div>
+        </div>
+        <div class="spacer-wrapper" title="--size-min">
+          <div class="data">--size-min (min-content)</div>
+          <div class="square" style="--width: var(--size-min); height: auto;">Here are some words</div>
+        </div>
+        <div class="spacer-wrapper" title="--size-max">
+          <div class="data">--size-max (max-content)</div>
+          <div class="square" style="--width: var(--size-max); height: auto;">Here are some words</div>
+        </div>
+        <h3 id="maxwidth"><a href="#maxwidth">Max width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        <p>You can use the <code>max-width</code> units to set the maximum width on elements.</p>
+        <p>All of the examples below have their width set to 100%, but they have one of the <code>max-width</code> units applied to their CSS <code>max-width</code>.</p>
+        ${widths.map(width => html`
+            <div class="spacer-wrapper" title="--max-width-${width}">
+              <div class="data">--max-width-${width}</div>
+              <div class="square" style="--width: var(--size-full); max-width: var(--max-width-${width}); background-color: var(--color-pea)"></div>
+            </div>
+          `)}
+        <h2 id="text"><a href="#text">Text</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <h3 id="fontsize"><a href="#fontsize">Font size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        <p><code>font-size-0</code> is 1rem.</p>
+        ${fontSizes.map(s => html`
+          <div class="text-spec" title="--font-size-${s}" style="font-family: var(--font-family-mono); font-size: var(--font-size-${s});">font-size-${s}</div>
+        `)}
+        <h3 id="fontfamily"><a href="#fontfamily">Font family</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        ${fontFamilies.map(f => html`
+          <div class="text-spec" title="--font-family-${f}" style="font-family: var(--font-family-${f});">font-family-${f}</div>
+        `)}
+        <h3 id="fontweight"><a href="#fontweight">Font weight</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        ${fontWeights.map(w => html`
+          <div class="text-spec" title="--font-weight-${w}" style="font-weight: var(--font-weight-${w});">font-weight-${w}</div>
+        `)}
+        <h3 id="lineheight"><a href="#lineheight">Line height</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        <p><code>line-height-1</code> sets the line height to 1; <code>line-height-normal</code> is 1.5.</p>
+        ${lineHeights.map(l => html`
+          <div class="text-spec" title="--line-height-${l}" style="background-color: var(--color-yellow-300); line-height: var(--line-height-${l});">line-height-${l}</div>
+        `)}
+        <h3 id="letterspacing"><a href="#letterspacing">Letter spacing</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        ${letterSpacings.map(ls => html`
+          <div class="text-spec" title="--letter-spacing-${ls}" style="letter-spacing: var(--letter-spacing-${ls});">letter-spacing-${ls}</div>
+        `)}
+        <h3 id="paragraphwidth"><a href="#paragraphwidth">Paragraph width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+        <p>Each <code>paragraph</code> unit is <code>40ch</code> wider than the previous.</p>
+        <p>Here, each example uses one of the <code>paragraph</code> units as its max width. <code>paragraph-normal</code> is used as the max with for paragraphs on this page.</p>
+        ${paragraphWidths.map(p => html`
+          <div class="text-spec" title="--paragraph-${p}" style="background-color: var(--color-salmon-100); max-width: var(--paragraph-${p});">paragraph-${p}</div>
+        `)}
+        <h2 id="shadow"><a href="#shadow">Shadow</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <p>There are ${elevations.length} different elevations.</p>
+        ${elevations.map(e => html`
+          <div class="card" title="--elevation-${e}" style="box-shadow: var(--elevation-${e})">elevation-${e}</div>
+          `)}
+        <h2 id="animation"><a href="#animation">Animation</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <p>Hover over the circles below to see their animation behavior.</p>
+        ${animations.map(a => html`
+          <div class="animated-wrapper" title="--easing-${a}">
+            <div class="animated-title">${a}</div>
+            <div class="animated" style="transition: all 500ms var(--easing-${a});"></div>
+          </div>
+        `)}
+        <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <p>The default <code>--radius</code> has a value of <code>0.5rem</code>.</p>
+        <div class="radius-container">
+          ${radii.map(r => {
+            const radiusName = r !== "" ? `-${r}`: "";
+            return html`
+              <div title="--radius${radiusName}" class="radius" style="border-radius: var(--radius${radiusName});">radius${radiusName}</div>  
+            `
+          })}
+        </div>
+        <h2 id="zindex"><a href="#zindex">Z-index</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <p>There are 6 different z-index layers, plus a "top" layer.</p>
+        <p>In the example below, all 7 elements are absolutely positioned relative to their container. The order in which they overlap each other is determined by their <code>layer</code>.</p>
+        <div class="layers-container">
+          ${layers.map(l => html`
+            <div draggable class="layer layer-${l}" title="layer-${l}">layer-${l}</div>
+          `)}
+        </div>
+      `;
+    }
+    
+    render(
+      html`<${App} />`,
+      document.getElementById("root")
+    );
+  </script>
+</body>
+
+</html>

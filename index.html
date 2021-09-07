@@ -449,7 +449,7 @@
         ${animations.map(a => html`
           <div class="animated-wrapper" title="--easing-${a}">
             <div class="animated-title">${a}</div>
-            <div class="animated" style="transition: all 500ms var(--easing-${a});"></div>
+            <div class="animated" style="transition: transform 500ms var(--easing-${a});"></div>
           </div>
         `)}
         <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>

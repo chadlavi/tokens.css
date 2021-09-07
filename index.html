@@ -131,7 +131,7 @@
   .animated-decelerate {
     transition: transform 500ms var(--easing-decelerate);
   }
-  .animated:hover, .animated:active {
+  .animated:hover, .animated:active, .animated:focus {
     transform: scale(0.5);
   }
   .radius-container {
@@ -454,11 +454,11 @@
           <div class="card" title="--elevation-${e}" style="box-shadow: var(--elevation-${e})">elevation-${e}</div>
           `)}
         <h2 id="animation"><a href="#animation">Animation</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <p>Hover or tap the circles below to see their animation behavior.</p>
+        <p>Hover, tap or focus the circles below to see their animation behavior.</p>
         ${animations.map(a => html`
           <div class="animated-wrapper" title="--easing-${a}">
             <div class="animated-title">${a}</div>
-            <div class="animated animated-${a}"></div>
+            <button aria-label="--easing-${a}" class="animated animated-${a}"></button>
           </div>
         `)}
         <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>

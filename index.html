@@ -122,6 +122,15 @@
     box-sizing: border-box;
     border-radius: var(--radius-round);
   }
+  .animated-standard {
+    transition: transform 500ms var(--easing-standard);
+  }
+  .animated-accelerate {
+    transition: transform 500ms var(--easing-accelerate);
+  }
+  .animated-decelerate {
+    transition: transform 500ms var(--easing-decelerate);
+  }
   .animated:hover {
     transform: scale(0.5);
   }
@@ -449,7 +458,7 @@
         ${animations.map(a => html`
           <div class="animated-wrapper" title="--easing-${a}">
             <div class="animated-title">${a}</div>
-            <div class="animated" style="transition: transform 500ms var(--easing-${a});"></div>
+            <div class="animated animated-${a}"></div>
           </div>
         `)}
         <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>

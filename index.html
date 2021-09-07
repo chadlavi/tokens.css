@@ -32,14 +32,15 @@
   }
 
   :not(pre) > code {
-    font-size: var(--font-size-00);
     background-color: var(--color-cyan-50);
     padding: var(--size-1);
     border-radius: var(--radius);
     font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-00);
   }
 
   code {
+    font-size: var(--font-size-000);
     font-family: var(--font-family-mono);
   }
 
@@ -454,6 +455,21 @@
           <div class="card" title="--elevation-${e}" style="box-shadow: var(--elevation-${e})">elevation-${e}</div>
           `)}
         <h2 id="animation"><a href="#animation">Animation</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+        <pre>
+          <code>.animated {
+  width: var(--size-24);
+  height: var(--size-24);
+  background-color: var(--color-brown-200);
+  border: 1px solid var(--color-brown);
+  box-sizing: border-box;
+  border-radius: var(--radius-round);
+  transition: transform 500ms var(--easing-standard);
+}
+.animated:hover, .animated:active, .animated:focus {
+  transform: scale(0.5);
+}
+          </code>
+        </pre>
         <p>Hover, tap or focus the circles below to see their animation behavior.</p>
         ${animations.map(a => html`
           <div class="animated-wrapper" title="--easing-${a}">

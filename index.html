@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tokens.css</title>
-  <link rel="stylesheet" href="./tokens.css" />
+  <link rel="stylesheet" href="./tokens.css?0" />
 </head>
 <style>
   :root {
     font-family: var(--font-family-sans);
-    color: var(--color-black);
+    --text-color: var(--color-black);
+    --background-color: var(--color-white);
+    --code-color: var(--color-cyan-50);
+    --body-margin: var(--size-2);
+    color: var(--text-color);
+    background-color: var(--background-color);
   }
-
-  .top-link {
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-regular);
-  }
-
+  
   h1 a,
   h2 a,
   h3 a,
@@ -26,16 +25,22 @@
     color: inherit;
   }
 
+  a {
+      color: var(--color-blue-900);
+  }
+  a:visited {
+    color: var(--color-purple-700);
+  }
+
   p {
     max-width: var(--paragraph-normal);
     line-height: var(--line-height-normal);
   }
 
-  :not(pre) > code {
-    background-color: var(--color-cyan-50);
+  :not(pre)>code {
+    background-color: var(--code-color);
     padding: var(--size-1);
     border-radius: var(--radius);
-    font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-00);
   }
 
@@ -45,11 +50,29 @@
   }
 
   pre {
-    background-color: var(--color-sky-50);
+    background-color: var(--code-color);
     padding: var(--size-4);
     max-width: var(--max-width-4xl);
     border-radius: var(--radius);
     overflow-x: auto;
+  }
+
+  .darkmode-only {
+    display: none;
+  }
+ 
+  .top-link {
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-regular);
+  }
+
+  .mono {
+    font-family: var(--font-family-mono);
+  }
+
+  .example-missing {
+    font-style: italic;
+    color: var(--color-grey);
   }
 
   .data {
@@ -73,7 +96,7 @@
   }
 
   .color-family .color-tone .title {
-    background-color: var(--color-white);
+    background-color: var(--background-color);
     padding: var(--size-1);
     font-size: var(--font-size-000);
   }
@@ -84,7 +107,7 @@
     --height: var(--width);
   }
 
-  .spacer-wrapper+.spacer-wrapper {
+  .spacer-wrapper + .spacer-wrapper {
     margin-top: var(--size-2);
   }
 
@@ -92,11 +115,24 @@
     margin-right: var(--margin);
     width: var(--width);
     height: var(--height);
-    background: var(--color-pink-100);
+    background-color: var(--color-pink-100);
+  }
+  .square.pea {
+    background-color: var(--color-pea);
   }
 
   .text-spec {
     margin-bottom: var(--size-2);
+  }
+
+  .yellow {
+    background-color: var(--color-yellow-300);
+    color: var(--color-black);
+  }
+
+  .salmon {
+    background-color: var(--color-salmon-100);
+    color: var(--color-black);
   }
 
   .card {
@@ -123,27 +159,36 @@
     box-sizing: border-box;
     border-radius: var(--radius-round);
   }
+
   .animated-standard {
     transition: transform 500ms var(--easing-standard);
   }
+
   .animated-accelerate {
     transition: transform 500ms var(--easing-accelerate);
   }
+
   .animated-decelerate {
     transition: transform 500ms var(--easing-decelerate);
   }
-  .animated:hover, .animated:active, .animated:focus {
+
+  .animated:hover,
+  .animated:active,
+  .animated:focus {
     transform: scale(0.5);
   }
+
   .radius-container {
     display: flex;
     flex-wrap: wrap;
     gap: var(--size-8);
   }
+
   .radius {
     padding: var(--size-8);
     border: 1px solid var(--color-orange-900);
     background-color: var(--color-orange-100);
+    color: var(--color-black);
     width: var(--size-44);
     height: var(--size-44);
     max-width: var(--size-full);
@@ -151,47 +196,56 @@
     align-items: center;
     justify-content: center;
   }
+
   .layers-container {
     position: relative;
     height: var(--size-96);
   }
+
   .layer {
     position: absolute;
     bottom: 0;
     padding: var(--size-2);
     box-sizing: border-box;
     border-radius: var(--radius);
-    font-family: var(--font-family-mono );
+    font-family: var(--font-family-mono);
+    color: var(--color-black);
   }
+
   .layer-1 {
     width: calc(var(--size-full) * 0.97);
     background-color: var(--color-purple-100);
     height: var(--size-96);
   }
+
   .layer-2 {
     width: calc(var(--size-full) * 0.95);
     background-color: var(--color-purple-200);
     height: var(--size-80);
     right: 0;
   }
+
   .layer-3 {
     width: calc(var(--size-full) * 0.9);
     background-color: var(--color-purple-300);
     height: var(--size-64);
     left: var(--size-4);
   }
+
   .layer-4 {
     width: calc(var(--size-full) * 0.85);
     background-color: var(--color-purple-400);
     height: var(--size-48);
     right: 0;
   }
+
   .layer-5 {
     width: calc(var(--size-full) * 0.8);
     background-color: var(--color-purple-500);
     height: var(--size-32);
     color: var(--color-white);
   }
+
   .layer-6 {
     width: calc(var(--size-full) * 0.75);
     background-color: var(--color-purple-600);
@@ -199,6 +253,7 @@
     color: var(--color-white);
     right: 0;
   }
+
   .layer-top {
     width: calc(var(--size-full) * 0.7);
     background-color: var(--color-purple-700);
@@ -207,256 +262,1316 @@
     display: flex;
     align-items: center;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: var(--color-grey-900);
+      --code-color: var(--color-grey-800);
+      --text-color: var(--color-white);
+    }
+    a {
+      color: var(--color-blue-600);
+    }
+    a:visited {
+      color: var(--color-purple-400);
+    }
+    .darkmode-only {
+      display: unset;
+    }
+    .square {
+      background-color: var(--color-pink-900);
+    }
+    .square.pea {
+      background-color: var(--color-pea-900);
+    }
+    .yellow {
+      background-color: var(--color-yellow-800);
+    }
+    .salmon {
+      background-color: var(--color-salmon-600);
+    }
+    .animated {
+      background-color: var(--color-brown-700);
+    }
+    .radius {
+      background-color: var(--color-orange-600);
+    }
+  }
+  body {
+    margin: var(--body-margin);
+  }
 </style>
 
 <body>
-  <div id="root"></div>
-  <script type="module">
-    "use strict";
-    import {
-      html,
-      render,
-    } from "https://unpkg.com/htm@3.1.0/preact/standalone.module.js";
+  <h1 id="top"><a target="_blank" href="https://github.com/chadlavi/tokens.css">Tokens.css</a></h1>
+  <p>This is a library of basic CSS tokens.</p>
+  <p>Use in your HTML with</p>
+  <pre><code>&lt;link rel="stylesheet" href="https://chadlavi.github.io/tokens.css/tokens.css" /></code></pre>
+  <ul id="index">
+    <li><a href="#colors">Colors</a></li>
+    <li>
+      <a href="#layout">Layout</a>
+      <ul>
+        <li><a href="#size">Size</a></li>
+        <li><a href="#maxwidth">Max width</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#text">Text</a>
+      <ul>
+        <li><a href="#fontsize">Font size</a></li>
+        <li><a href="#fontfamily">Font family</a></li>
+        <li><a href="#fontweight">Font weight</a></li>
+        <li><a href="#lineheight">Line height</a></li>
+        <li><a href="#letterspacing">Letter spacing</a></li>
+        <li><a href="#paragraphwidth">Paragraph width</a></li>
+      </ul>
+    </li>
+    <li><a href="#shadow">Shadow</a></li>
+    <li><a href="#animation">Animation</a></li>
+    <li><a href="#borderradius">Border radius</a></li>
+    <li><a href="#zindex">Z-index</a></li>
+  </ul>
+  <h2 id="colors"><a href="#colors">Colors</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
 
-    const colors = [
-      "red",
-      "pink",
-      "purple",
-      "violet",
-      "indigo",
-      "blue",
-      "sky",
-      "cyan",
-      "teal",
-      "green",
-      "pea",
-      "lime",
-      "yellow",
-      "amber",
-      "orange",
-      "salmon",
-      "brown"
-    ]
+  <p><code>color</code> variables have the shape <code>--color-[shade]-[tone]</code>.</p>
 
-    const tones = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+  <p>The possible shades are: <code>grey</code>, <code>red</code>, <code>pink</code>, <code>purple</code>,
+    <code>violet</code>, <code>indigo</code>, <code>blue</code>, <code>sky</code>, <code>cyan</code>, <code>teal</code>,
+    <code>green</code>, <code>pea</code>, <code>lime</code>, <code>yellow</code>, <code>amber</code>,
+    <code>orange</code>, <code>salmon</code>, and <code>brown</code>.
+  </p>
 
-    const sizes = [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      14,
-      16,
-      20,
-      24,
-      28,
-      32,
-      36,
-      40,
-      44,
-      48,
-      52,
-      56,
-      60,
-      64,
-      72,
-      80,
-      96,
-    ]
+  <p>The possible tones are (from lightest to darkest): <code>50</code>, <code>100</code>, <code>200</code>,
+    <code>300</code>, <code>400</code>, <code>500</code>, <code>600</code>, <code>700</code>, <code>800</code>, and
+    <code>900</code>.
+  </p>
 
-    const widths = [
-      "xs",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "2xl",
-      "3xl",
-      "4xl",
-      "5xl",
-      "6xl",
-      "7xl",
-    ]
+  <p>Using a color variable without the tone defaults to the <code>500</code> tone. For example,
+    <code>--color-orange</code> is the same as <code>--color-orange-500</code>.
+  </p>
 
-    const fontSizes = [
-      "000",
-      "00",
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-    ]
+  <p>There are two special colors, <code>--color-white</code> and <code>--color-black</code> that do not have any tones.
+  </p>
 
-    const fontFamilies = ["sans", "serif", "mono"]
+  <div class="color-family">
+    <div title="--color-white" class="color-tone data"
+      style="background-color: var(--color-white); box-sizing: border-box; border: 1px solid var(--color-black);">
+      <div class="title">white</div>
+    </div>
+    <div title="--color-black" class="color-tone data"
+      style="background-color: var(--color-black); box-sizing: border-box; border: 1px solid var(--color-black); border-left: none;">
+      <div class="title">black</div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-grey-50" class="color-tone data" style="background-color:  var(--color-grey-50);">
+      <div class="title">
+        grey 50
+      </div>
+    </div>
+    <div title="--color-grey-100" class="color-tone data" style="background-color:  var(--color-grey-100);">
+      <div class="title">
+        grey 100
+      </div>
+    </div>
+    <div title="--color-grey-200" class="color-tone data" style="background-color:  var(--color-grey-200);">
+      <div class="title">
+        grey 200
+      </div>
+    </div>
+    <div title="--color-grey-300" class="color-tone data" style="background-color:  var(--color-grey-300);">
+      <div class="title">
+        grey 300
+      </div>
+    </div>
+    <div title="--color-grey-400" class="color-tone data" style="background-color:  var(--color-grey-400);">
+      <div class="title">
+        grey 400
+      </div>
+    </div>
+    <div title="--color-grey-500" class="color-tone data" style="background-color:  var(--color-grey-500);">
+      <div class="title">
+        grey 500
+      </div>
+    </div>
+    <div title="--color-grey-600" class="color-tone data" style="background-color:  var(--color-grey-600);">
+      <div class="title">
+        grey 600
+      </div>
+    </div>
+    <div title="--color-grey-700" class="color-tone data" style="background-color:  var(--color-grey-700);">
+      <div class="title">
+        grey 700
+      </div>
+    </div>
+    <div title="--color-grey-800" class="color-tone data" style="background-color:  var(--color-grey-800);">
+      <div class="title">
+        grey 800
+      </div>
+    </div>
+    <div title="--color-grey-900" class="color-tone data" style="background-color:  var(--color-grey-900);">
+      <div class="title">
+        grey 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-red-50" class="color-tone data" style="background-color:  var(--color-red-50);">
+      <div class="title">
+        red 50
+      </div>
+    </div>
+    <div title="--color-red-100" class="color-tone data" style="background-color:  var(--color-red-100);">
+      <div class="title">
+        red 100
+      </div>
+    </div>
+    <div title="--color-red-200" class="color-tone data" style="background-color:  var(--color-red-200);">
+      <div class="title">
+        red 200
+      </div>
+    </div>
+    <div title="--color-red-300" class="color-tone data" style="background-color:  var(--color-red-300);">
+      <div class="title">
+        red 300
+      </div>
+    </div>
+    <div title="--color-red-400" class="color-tone data" style="background-color:  var(--color-red-400);">
+      <div class="title">
+        red 400
+      </div>
+    </div>
+    <div title="--color-red-500" class="color-tone data" style="background-color:  var(--color-red-500);">
+      <div class="title">
+        red 500
+      </div>
+    </div>
+    <div title="--color-red-600" class="color-tone data" style="background-color:  var(--color-red-600);">
+      <div class="title">
+        red 600
+      </div>
+    </div>
+    <div title="--color-red-700" class="color-tone data" style="background-color:  var(--color-red-700);">
+      <div class="title">
+        red 700
+      </div>
+    </div>
+    <div title="--color-red-800" class="color-tone data" style="background-color:  var(--color-red-800);">
+      <div class="title">
+        red 800
+      </div>
+    </div>
+    <div title="--color-red-900" class="color-tone data" style="background-color:  var(--color-red-900);">
+      <div class="title">
+        red 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-pink-50" class="color-tone data" style="background-color:  var(--color-pink-50);">
+      <div class="title">
+        pink 50
+      </div>
+    </div>
+    <div title="--color-pink-100" class="color-tone data" style="background-color:  var(--color-pink-100);">
+      <div class="title">
+        pink 100
+      </div>
+    </div>
+    <div title="--color-pink-200" class="color-tone data" style="background-color:  var(--color-pink-200);">
+      <div class="title">
+        pink 200
+      </div>
+    </div>
+    <div title="--color-pink-300" class="color-tone data" style="background-color:  var(--color-pink-300);">
+      <div class="title">
+        pink 300
+      </div>
+    </div>
+    <div title="--color-pink-400" class="color-tone data" style="background-color:  var(--color-pink-400);">
+      <div class="title">
+        pink 400
+      </div>
+    </div>
+    <div title="--color-pink-500" class="color-tone data" style="background-color:  var(--color-pink-500);">
+      <div class="title">
+        pink 500
+      </div>
+    </div>
+    <div title="--color-pink-600" class="color-tone data" style="background-color:  var(--color-pink-600);">
+      <div class="title">
+        pink 600
+      </div>
+    </div>
+    <div title="--color-pink-700" class="color-tone data" style="background-color:  var(--color-pink-700);">
+      <div class="title">
+        pink 700
+      </div>
+    </div>
+    <div title="--color-pink-800" class="color-tone data" style="background-color:  var(--color-pink-800);">
+      <div class="title">
+        pink 800
+      </div>
+    </div>
+    <div title="--color-pink-900" class="color-tone data" style="background-color:  var(--color-pink-900);">
+      <div class="title">
+        pink 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-purple-50" class="color-tone data" style="background-color:  var(--color-purple-50);">
+      <div class="title">
+        purple 50
+      </div>
+    </div>
+    <div title="--color-purple-100" class="color-tone data" style="background-color:  var(--color-purple-100);">
+      <div class="title">
+        purple 100
+      </div>
+    </div>
+    <div title="--color-purple-200" class="color-tone data" style="background-color:  var(--color-purple-200);">
+      <div class="title">
+        purple 200
+      </div>
+    </div>
+    <div title="--color-purple-300" class="color-tone data" style="background-color:  var(--color-purple-300);">
+      <div class="title">
+        purple 300
+      </div>
+    </div>
+    <div title="--color-purple-400" class="color-tone data" style="background-color:  var(--color-purple-400);">
+      <div class="title">
+        purple 400
+      </div>
+    </div>
+    <div title="--color-purple-500" class="color-tone data" style="background-color:  var(--color-purple-500);">
+      <div class="title">
+        purple 500
+      </div>
+    </div>
+    <div title="--color-purple-600" class="color-tone data" style="background-color:  var(--color-purple-600);">
+      <div class="title">
+        purple 600
+      </div>
+    </div>
+    <div title="--color-purple-700" class="color-tone data" style="background-color:  var(--color-purple-700);">
+      <div class="title">
+        purple 700
+      </div>
+    </div>
+    <div title="--color-purple-800" class="color-tone data" style="background-color:  var(--color-purple-800);">
+      <div class="title">
+        purple 800
+      </div>
+    </div>
+    <div title="--color-purple-900" class="color-tone data" style="background-color:  var(--color-purple-900);">
+      <div class="title">
+        purple 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-violet-50" class="color-tone data" style="background-color:  var(--color-violet-50);">
+      <div class="title">
+        violet 50
+      </div>
+    </div>
+    <div title="--color-violet-100" class="color-tone data" style="background-color:  var(--color-violet-100);">
+      <div class="title">
+        violet 100
+      </div>
+    </div>
+    <div title="--color-violet-200" class="color-tone data" style="background-color:  var(--color-violet-200);">
+      <div class="title">
+        violet 200
+      </div>
+    </div>
+    <div title="--color-violet-300" class="color-tone data" style="background-color:  var(--color-violet-300);">
+      <div class="title">
+        violet 300
+      </div>
+    </div>
+    <div title="--color-violet-400" class="color-tone data" style="background-color:  var(--color-violet-400);">
+      <div class="title">
+        violet 400
+      </div>
+    </div>
+    <div title="--color-violet-500" class="color-tone data" style="background-color:  var(--color-violet-500);">
+      <div class="title">
+        violet 500
+      </div>
+    </div>
+    <div title="--color-violet-600" class="color-tone data" style="background-color:  var(--color-violet-600);">
+      <div class="title">
+        violet 600
+      </div>
+    </div>
+    <div title="--color-violet-700" class="color-tone data" style="background-color:  var(--color-violet-700);">
+      <div class="title">
+        violet 700
+      </div>
+    </div>
+    <div title="--color-violet-800" class="color-tone data" style="background-color:  var(--color-violet-800);">
+      <div class="title">
+        violet 800
+      </div>
+    </div>
+    <div title="--color-violet-900" class="color-tone data" style="background-color:  var(--color-violet-900);">
+      <div class="title">
+        violet 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-indigo-50" class="color-tone data" style="background-color:  var(--color-indigo-50);">
+      <div class="title">
+        indigo 50
+      </div>
+    </div>
+    <div title="--color-indigo-100" class="color-tone data" style="background-color:  var(--color-indigo-100);">
+      <div class="title">
+        indigo 100
+      </div>
+    </div>
+    <div title="--color-indigo-200" class="color-tone data" style="background-color:  var(--color-indigo-200);">
+      <div class="title">
+        indigo 200
+      </div>
+    </div>
+    <div title="--color-indigo-300" class="color-tone data" style="background-color:  var(--color-indigo-300);">
+      <div class="title">
+        indigo 300
+      </div>
+    </div>
+    <div title="--color-indigo-400" class="color-tone data" style="background-color:  var(--color-indigo-400);">
+      <div class="title">
+        indigo 400
+      </div>
+    </div>
+    <div title="--color-indigo-500" class="color-tone data" style="background-color:  var(--color-indigo-500);">
+      <div class="title">
+        indigo 500
+      </div>
+    </div>
+    <div title="--color-indigo-600" class="color-tone data" style="background-color:  var(--color-indigo-600);">
+      <div class="title">
+        indigo 600
+      </div>
+    </div>
+    <div title="--color-indigo-700" class="color-tone data" style="background-color:  var(--color-indigo-700);">
+      <div class="title">
+        indigo 700
+      </div>
+    </div>
+    <div title="--color-indigo-800" class="color-tone data" style="background-color:  var(--color-indigo-800);">
+      <div class="title">
+        indigo 800
+      </div>
+    </div>
+    <div title="--color-indigo-900" class="color-tone data" style="background-color:  var(--color-indigo-900);">
+      <div class="title">
+        indigo 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-blue-50" class="color-tone data" style="background-color:  var(--color-blue-50);">
+      <div class="title">
+        blue 50
+      </div>
+    </div>
+    <div title="--color-blue-100" class="color-tone data" style="background-color:  var(--color-blue-100);">
+      <div class="title">
+        blue 100
+      </div>
+    </div>
+    <div title="--color-blue-200" class="color-tone data" style="background-color:  var(--color-blue-200);">
+      <div class="title">
+        blue 200
+      </div>
+    </div>
+    <div title="--color-blue-300" class="color-tone data" style="background-color:  var(--color-blue-300);">
+      <div class="title">
+        blue 300
+      </div>
+    </div>
+    <div title="--color-blue-400" class="color-tone data" style="background-color:  var(--color-blue-400);">
+      <div class="title">
+        blue 400
+      </div>
+    </div>
+    <div title="--color-blue-500" class="color-tone data" style="background-color:  var(--color-blue-500);">
+      <div class="title">
+        blue 500
+      </div>
+    </div>
+    <div title="--color-blue-600" class="color-tone data" style="background-color:  var(--color-blue-600);">
+      <div class="title">
+        blue 600
+      </div>
+    </div>
+    <div title="--color-blue-700" class="color-tone data" style="background-color:  var(--color-blue-700);">
+      <div class="title">
+        blue 700
+      </div>
+    </div>
+    <div title="--color-blue-800" class="color-tone data" style="background-color:  var(--color-blue-800);">
+      <div class="title">
+        blue 800
+      </div>
+    </div>
+    <div title="--color-blue-900" class="color-tone data" style="background-color:  var(--color-blue-900);">
+      <div class="title">
+        blue 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-sky-50" class="color-tone data" style="background-color:  var(--color-sky-50);">
+      <div class="title">
+        sky 50
+      </div>
+    </div>
+    <div title="--color-sky-100" class="color-tone data" style="background-color:  var(--color-sky-100);">
+      <div class="title">
+        sky 100
+      </div>
+    </div>
+    <div title="--color-sky-200" class="color-tone data" style="background-color:  var(--color-sky-200);">
+      <div class="title">
+        sky 200
+      </div>
+    </div>
+    <div title="--color-sky-300" class="color-tone data" style="background-color:  var(--color-sky-300);">
+      <div class="title">
+        sky 300
+      </div>
+    </div>
+    <div title="--color-sky-400" class="color-tone data" style="background-color:  var(--color-sky-400);">
+      <div class="title">
+        sky 400
+      </div>
+    </div>
+    <div title="--color-sky-500" class="color-tone data" style="background-color:  var(--color-sky-500);">
+      <div class="title">
+        sky 500
+      </div>
+    </div>
+    <div title="--color-sky-600" class="color-tone data" style="background-color:  var(--color-sky-600);">
+      <div class="title">
+        sky 600
+      </div>
+    </div>
+    <div title="--color-sky-700" class="color-tone data" style="background-color:  var(--color-sky-700);">
+      <div class="title">
+        sky 700
+      </div>
+    </div>
+    <div title="--color-sky-800" class="color-tone data" style="background-color:  var(--color-sky-800);">
+      <div class="title">
+        sky 800
+      </div>
+    </div>
+    <div title="--color-sky-900" class="color-tone data" style="background-color:  var(--color-sky-900);">
+      <div class="title">
+        sky 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-cyan-50" class="color-tone data" style="background-color:  var(--color-cyan-50);">
+      <div class="title">
+        cyan 50
+      </div>
+    </div>
+    <div title="--color-cyan-100" class="color-tone data" style="background-color:  var(--color-cyan-100);">
+      <div class="title">
+        cyan 100
+      </div>
+    </div>
+    <div title="--color-cyan-200" class="color-tone data" style="background-color:  var(--color-cyan-200);">
+      <div class="title">
+        cyan 200
+      </div>
+    </div>
+    <div title="--color-cyan-300" class="color-tone data" style="background-color:  var(--color-cyan-300);">
+      <div class="title">
+        cyan 300
+      </div>
+    </div>
+    <div title="--color-cyan-400" class="color-tone data" style="background-color:  var(--color-cyan-400);">
+      <div class="title">
+        cyan 400
+      </div>
+    </div>
+    <div title="--color-cyan-500" class="color-tone data" style="background-color:  var(--color-cyan-500);">
+      <div class="title">
+        cyan 500
+      </div>
+    </div>
+    <div title="--color-cyan-600" class="color-tone data" style="background-color:  var(--color-cyan-600);">
+      <div class="title">
+        cyan 600
+      </div>
+    </div>
+    <div title="--color-cyan-700" class="color-tone data" style="background-color:  var(--color-cyan-700);">
+      <div class="title">
+        cyan 700
+      </div>
+    </div>
+    <div title="--color-cyan-800" class="color-tone data" style="background-color:  var(--color-cyan-800);">
+      <div class="title">
+        cyan 800
+      </div>
+    </div>
+    <div title="--color-cyan-900" class="color-tone data" style="background-color:  var(--color-cyan-900);">
+      <div class="title">
+        cyan 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-teal-50" class="color-tone data" style="background-color:  var(--color-teal-50);">
+      <div class="title">
+        teal 50
+      </div>
+    </div>
+    <div title="--color-teal-100" class="color-tone data" style="background-color:  var(--color-teal-100);">
+      <div class="title">
+        teal 100
+      </div>
+    </div>
+    <div title="--color-teal-200" class="color-tone data" style="background-color:  var(--color-teal-200);">
+      <div class="title">
+        teal 200
+      </div>
+    </div>
+    <div title="--color-teal-300" class="color-tone data" style="background-color:  var(--color-teal-300);">
+      <div class="title">
+        teal 300
+      </div>
+    </div>
+    <div title="--color-teal-400" class="color-tone data" style="background-color:  var(--color-teal-400);">
+      <div class="title">
+        teal 400
+      </div>
+    </div>
+    <div title="--color-teal-500" class="color-tone data" style="background-color:  var(--color-teal-500);">
+      <div class="title">
+        teal 500
+      </div>
+    </div>
+    <div title="--color-teal-600" class="color-tone data" style="background-color:  var(--color-teal-600);">
+      <div class="title">
+        teal 600
+      </div>
+    </div>
+    <div title="--color-teal-700" class="color-tone data" style="background-color:  var(--color-teal-700);">
+      <div class="title">
+        teal 700
+      </div>
+    </div>
+    <div title="--color-teal-800" class="color-tone data" style="background-color:  var(--color-teal-800);">
+      <div class="title">
+        teal 800
+      </div>
+    </div>
+    <div title="--color-teal-900" class="color-tone data" style="background-color:  var(--color-teal-900);">
+      <div class="title">
+        teal 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-green-50" class="color-tone data" style="background-color:  var(--color-green-50);">
+      <div class="title">
+        green 50
+      </div>
+    </div>
+    <div title="--color-green-100" class="color-tone data" style="background-color:  var(--color-green-100);">
+      <div class="title">
+        green 100
+      </div>
+    </div>
+    <div title="--color-green-200" class="color-tone data" style="background-color:  var(--color-green-200);">
+      <div class="title">
+        green 200
+      </div>
+    </div>
+    <div title="--color-green-300" class="color-tone data" style="background-color:  var(--color-green-300);">
+      <div class="title">
+        green 300
+      </div>
+    </div>
+    <div title="--color-green-400" class="color-tone data" style="background-color:  var(--color-green-400);">
+      <div class="title">
+        green 400
+      </div>
+    </div>
+    <div title="--color-green-500" class="color-tone data" style="background-color:  var(--color-green-500);">
+      <div class="title">
+        green 500
+      </div>
+    </div>
+    <div title="--color-green-600" class="color-tone data" style="background-color:  var(--color-green-600);">
+      <div class="title">
+        green 600
+      </div>
+    </div>
+    <div title="--color-green-700" class="color-tone data" style="background-color:  var(--color-green-700);">
+      <div class="title">
+        green 700
+      </div>
+    </div>
+    <div title="--color-green-800" class="color-tone data" style="background-color:  var(--color-green-800);">
+      <div class="title">
+        green 800
+      </div>
+    </div>
+    <div title="--color-green-900" class="color-tone data" style="background-color:  var(--color-green-900);">
+      <div class="title">
+        green 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-pea-50" class="color-tone data" style="background-color:  var(--color-pea-50);">
+      <div class="title">
+        pea 50
+      </div>
+    </div>
+    <div title="--color-pea-100" class="color-tone data" style="background-color:  var(--color-pea-100);">
+      <div class="title">
+        pea 100
+      </div>
+    </div>
+    <div title="--color-pea-200" class="color-tone data" style="background-color:  var(--color-pea-200);">
+      <div class="title">
+        pea 200
+      </div>
+    </div>
+    <div title="--color-pea-300" class="color-tone data" style="background-color:  var(--color-pea-300);">
+      <div class="title">
+        pea 300
+      </div>
+    </div>
+    <div title="--color-pea-400" class="color-tone data" style="background-color:  var(--color-pea-400);">
+      <div class="title">
+        pea 400
+      </div>
+    </div>
+    <div title="--color-pea-500" class="color-tone data" style="background-color:  var(--color-pea-500);">
+      <div class="title">
+        pea 500
+      </div>
+    </div>
+    <div title="--color-pea-600" class="color-tone data" style="background-color:  var(--color-pea-600);">
+      <div class="title">
+        pea 600
+      </div>
+    </div>
+    <div title="--color-pea-700" class="color-tone data" style="background-color:  var(--color-pea-700);">
+      <div class="title">
+        pea 700
+      </div>
+    </div>
+    <div title="--color-pea-800" class="color-tone data" style="background-color:  var(--color-pea-800);">
+      <div class="title">
+        pea 800
+      </div>
+    </div>
+    <div title="--color-pea-900" class="color-tone data" style="background-color:  var(--color-pea-900);">
+      <div class="title">
+        pea 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-lime-50" class="color-tone data" style="background-color:  var(--color-lime-50);">
+      <div class="title">
+        lime 50
+      </div>
+    </div>
+    <div title="--color-lime-100" class="color-tone data" style="background-color:  var(--color-lime-100);">
+      <div class="title">
+        lime 100
+      </div>
+    </div>
+    <div title="--color-lime-200" class="color-tone data" style="background-color:  var(--color-lime-200);">
+      <div class="title">
+        lime 200
+      </div>
+    </div>
+    <div title="--color-lime-300" class="color-tone data" style="background-color:  var(--color-lime-300);">
+      <div class="title">
+        lime 300
+      </div>
+    </div>
+    <div title="--color-lime-400" class="color-tone data" style="background-color:  var(--color-lime-400);">
+      <div class="title">
+        lime 400
+      </div>
+    </div>
+    <div title="--color-lime-500" class="color-tone data" style="background-color:  var(--color-lime-500);">
+      <div class="title">
+        lime 500
+      </div>
+    </div>
+    <div title="--color-lime-600" class="color-tone data" style="background-color:  var(--color-lime-600);">
+      <div class="title">
+        lime 600
+      </div>
+    </div>
+    <div title="--color-lime-700" class="color-tone data" style="background-color:  var(--color-lime-700);">
+      <div class="title">
+        lime 700
+      </div>
+    </div>
+    <div title="--color-lime-800" class="color-tone data" style="background-color:  var(--color-lime-800);">
+      <div class="title">
+        lime 800
+      </div>
+    </div>
+    <div title="--color-lime-900" class="color-tone data" style="background-color:  var(--color-lime-900);">
+      <div class="title">
+        lime 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-yellow-50" class="color-tone data" style="background-color:  var(--color-yellow-50);">
+      <div class="title">
+        yellow 50
+      </div>
+    </div>
+    <div title="--color-yellow-100" class="color-tone data" style="background-color:  var(--color-yellow-100);">
+      <div class="title">
+        yellow 100
+      </div>
+    </div>
+    <div title="--color-yellow-200" class="color-tone data" style="background-color:  var(--color-yellow-200);">
+      <div class="title">
+        yellow 200
+      </div>
+    </div>
+    <div title="--color-yellow-300" class="color-tone data" style="background-color:  var(--color-yellow-300);">
+      <div class="title">
+        yellow 300
+      </div>
+    </div>
+    <div title="--color-yellow-400" class="color-tone data" style="background-color:  var(--color-yellow-400);">
+      <div class="title">
+        yellow 400
+      </div>
+    </div>
+    <div title="--color-yellow-500" class="color-tone data" style="background-color:  var(--color-yellow-500);">
+      <div class="title">
+        yellow 500
+      </div>
+    </div>
+    <div title="--color-yellow-600" class="color-tone data" style="background-color:  var(--color-yellow-600);">
+      <div class="title">
+        yellow 600
+      </div>
+    </div>
+    <div title="--color-yellow-700" class="color-tone data" style="background-color:  var(--color-yellow-700);">
+      <div class="title">
+        yellow 700
+      </div>
+    </div>
+    <div title="--color-yellow-800" class="color-tone data" style="background-color:  var(--color-yellow-800);">
+      <div class="title">
+        yellow 800
+      </div>
+    </div>
+    <div title="--color-yellow-900" class="color-tone data" style="background-color:  var(--color-yellow-900);">
+      <div class="title">
+        yellow 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-amber-50" class="color-tone data" style="background-color:  var(--color-amber-50);">
+      <div class="title">
+        amber 50
+      </div>
+    </div>
+    <div title="--color-amber-100" class="color-tone data" style="background-color:  var(--color-amber-100);">
+      <div class="title">
+        amber 100
+      </div>
+    </div>
+    <div title="--color-amber-200" class="color-tone data" style="background-color:  var(--color-amber-200);">
+      <div class="title">
+        amber 200
+      </div>
+    </div>
+    <div title="--color-amber-300" class="color-tone data" style="background-color:  var(--color-amber-300);">
+      <div class="title">
+        amber 300
+      </div>
+    </div>
+    <div title="--color-amber-400" class="color-tone data" style="background-color:  var(--color-amber-400);">
+      <div class="title">
+        amber 400
+      </div>
+    </div>
+    <div title="--color-amber-500" class="color-tone data" style="background-color:  var(--color-amber-500);">
+      <div class="title">
+        amber 500
+      </div>
+    </div>
+    <div title="--color-amber-600" class="color-tone data" style="background-color:  var(--color-amber-600);">
+      <div class="title">
+        amber 600
+      </div>
+    </div>
+    <div title="--color-amber-700" class="color-tone data" style="background-color:  var(--color-amber-700);">
+      <div class="title">
+        amber 700
+      </div>
+    </div>
+    <div title="--color-amber-800" class="color-tone data" style="background-color:  var(--color-amber-800);">
+      <div class="title">
+        amber 800
+      </div>
+    </div>
+    <div title="--color-amber-900" class="color-tone data" style="background-color:  var(--color-amber-900);">
+      <div class="title">
+        amber 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-orange-50" class="color-tone data" style="background-color:  var(--color-orange-50);">
+      <div class="title">
+        orange 50
+      </div>
+    </div>
+    <div title="--color-orange-100" class="color-tone data" style="background-color:  var(--color-orange-100);">
+      <div class="title">
+        orange 100
+      </div>
+    </div>
+    <div title="--color-orange-200" class="color-tone data" style="background-color:  var(--color-orange-200);">
+      <div class="title">
+        orange 200
+      </div>
+    </div>
+    <div title="--color-orange-300" class="color-tone data" style="background-color:  var(--color-orange-300);">
+      <div class="title">
+        orange 300
+      </div>
+    </div>
+    <div title="--color-orange-400" class="color-tone data" style="background-color:  var(--color-orange-400);">
+      <div class="title">
+        orange 400
+      </div>
+    </div>
+    <div title="--color-orange-500" class="color-tone data" style="background-color:  var(--color-orange-500);">
+      <div class="title">
+        orange 500
+      </div>
+    </div>
+    <div title="--color-orange-600" class="color-tone data" style="background-color:  var(--color-orange-600);">
+      <div class="title">
+        orange 600
+      </div>
+    </div>
+    <div title="--color-orange-700" class="color-tone data" style="background-color:  var(--color-orange-700);">
+      <div class="title">
+        orange 700
+      </div>
+    </div>
+    <div title="--color-orange-800" class="color-tone data" style="background-color:  var(--color-orange-800);">
+      <div class="title">
+        orange 800
+      </div>
+    </div>
+    <div title="--color-orange-900" class="color-tone data" style="background-color:  var(--color-orange-900);">
+      <div class="title">
+        orange 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-salmon-50" class="color-tone data" style="background-color:  var(--color-salmon-50);">
+      <div class="title">
+        salmon 50
+      </div>
+    </div>
+    <div title="--color-salmon-100" class="color-tone data" style="background-color:  var(--color-salmon-100);">
+      <div class="title">
+        salmon 100
+      </div>
+    </div>
+    <div title="--color-salmon-200" class="color-tone data" style="background-color:  var(--color-salmon-200);">
+      <div class="title">
+        salmon 200
+      </div>
+    </div>
+    <div title="--color-salmon-300" class="color-tone data" style="background-color:  var(--color-salmon-300);">
+      <div class="title">
+        salmon 300
+      </div>
+    </div>
+    <div title="--color-salmon-400" class="color-tone data" style="background-color:  var(--color-salmon-400);">
+      <div class="title">
+        salmon 400
+      </div>
+    </div>
+    <div title="--color-salmon-500" class="color-tone data" style="background-color:  var(--color-salmon-500);">
+      <div class="title">
+        salmon 500
+      </div>
+    </div>
+    <div title="--color-salmon-600" class="color-tone data" style="background-color:  var(--color-salmon-600);">
+      <div class="title">
+        salmon 600
+      </div>
+    </div>
+    <div title="--color-salmon-700" class="color-tone data" style="background-color:  var(--color-salmon-700);">
+      <div class="title">
+        salmon 700
+      </div>
+    </div>
+    <div title="--color-salmon-800" class="color-tone data" style="background-color:  var(--color-salmon-800);">
+      <div class="title">
+        salmon 800
+      </div>
+    </div>
+    <div title="--color-salmon-900" class="color-tone data" style="background-color:  var(--color-salmon-900);">
+      <div class="title">
+        salmon 900
+      </div>
+    </div>
+  </div>
+  <div class="color-family">
+    <div title="--color-brown-50" class="color-tone data" style="background-color:  var(--color-brown-50);">
+      <div class="title">
+        brown 50
+      </div>
+    </div>
+    <div title="--color-brown-100" class="color-tone data" style="background-color:  var(--color-brown-100);">
+      <div class="title">
+        brown 100
+      </div>
+    </div>
+    <div title="--color-brown-200" class="color-tone data" style="background-color:  var(--color-brown-200);">
+      <div class="title">
+        brown 200
+      </div>
+    </div>
+    <div title="--color-brown-300" class="color-tone data" style="background-color:  var(--color-brown-300);">
+      <div class="title">
+        brown 300
+      </div>
+    </div>
+    <div title="--color-brown-400" class="color-tone data" style="background-color:  var(--color-brown-400);">
+      <div class="title">
+        brown 400
+      </div>
+    </div>
+    <div title="--color-brown-500" class="color-tone data" style="background-color:  var(--color-brown-500);">
+      <div class="title">
+        brown 500
+      </div>
+    </div>
+    <div title="--color-brown-600" class="color-tone data" style="background-color:  var(--color-brown-600);">
+      <div class="title">
+        brown 600
+      </div>
+    </div>
+    <div title="--color-brown-700" class="color-tone data" style="background-color:  var(--color-brown-700);">
+      <div class="title">
+        brown 700
+      </div>
+    </div>
+    <div title="--color-brown-800" class="color-tone data" style="background-color:  var(--color-brown-800);">
+      <div class="title">
+        brown 800
+      </div>
+    </div>
+    <div title="--color-brown-900" class="color-tone data" style="background-color:  var(--color-brown-900);">
+      <div class="title">
+        brown 900
+      </div>
+    </div>
+  </div>
 
-    const fontWeights = ["light", "regular", "medium", "semibold", "bold", "black"]
-
-    const lineHeights = ["1", "xs", "sm", "normal", "lg", "xl"]
-
-    const letterSpacings = ["000", "00", 0, 1, 2, 3]
-
-    const paragraphWidths = ["narrow", "normal", "wide"]
-
-    const elevations = [1, 2, 3, 4, 5, 6]
-
-    const animations = ["standard", "accelerate", "decelerate"]
-
-    const radii = [0, "sm", "", "md", "lg", "xl", "2xl", "3xl", "round"]
-
-    const layers = [1, 2, 3, 4, 5, 6, "top"]
-
-    const App = () => {
-      return html`
-        <h1 id="top"><a target="_blank" href="https://github.com/chadlavi/tokens.css">Tokens.css</a></h1>
-        <p>This is a library of basic CSS tokens.</p>
-        <p>Use in your HTML with</p>
-        <pre>
-          <code>
-            ${'<link rel="stylesheet" href="https://chadlavi.github.io/tokens.css/tokens.css" />'}
-          </code>
-        </pre>
-        <ul id="index">
-          <li><a href="#colors">Colors</a></li>
-          <li>
-            <a href="#layout">Layout</a>
-            <ul>
-              <li><a href="#size">Size</a></li>          
-              <li><a href="#maxwidth">Max width</a></li>          
-            </ul>
-          </li>
-          <li>
-            <a href="#text">Text</a>
-            <ul>
-              <li><a href="#fontsize">Font size</a></li>          
-              <li><a href="#fontfamily">Font family</a></li>          
-              <li><a href="#fontweight">Font weight</a></li>          
-              <li><a href="#lineheight">Line height</a></li>          
-              <li><a href="#letterspacing">Letter spacing</a></li>          
-              <li><a href="#paragraphwidth">Paragraph width</a></li>          
-            </ul>
-          </li>
-          <li><a href="#shadow">Shadow</a></li>
-          <li><a href="#animation">Animation</a></li>
-          <li><a href="#borderradius">Border radius</a></li>
-          <li><a href="#zindex">Z-index</a></li>
-        </ul>
-        <h2 id="colors"><a href="#colors">Colors</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <div class="color-family">
-          <div title="--color-white" class="color-tone data" style="background-color: var(--color-white); box-sizing: border-box; border: 1px solid var(--color-black);">
-            <div class="title">white</div>
-          </div>
-          <div title="--color-black" class="color-tone data" style="background-color: var(--color-black); box-sizing: border-box; border: 1px solid var(--color-black); border-left: none;">
-            <div class="title">black</div>
-          </div>
-        </div>
-        ${colors.map(color => html`
-            <div class="color-family">
-              ${tones.map(tone => html`
-                <div title="--color-${color}-${tone}" class="color-tone data" style="background-color:  var(--color-${color}-${tone});">
-                  <div class="title">
-                    ${color} ${tone}
-                  </div>
-                </div>
-                `)}
-            </div>
-          `
-      )}
-        <h2 id="layout"><a href="#layout">Layout</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <h3 id="size"><a href="#size">Size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        <p>Each <code>size</code> unit is equal to <code>0.25rem</code>. Divide the size unit number by 4 to determine how many rem it is.</p>
-        <p><code>size</code> units are shown here as the width of a box, but can also be used for padding, margins, heights -- any <code>px</code> measurement.</p>
-        ${sizes.map(size => html`
-            <div class="spacer-wrapper" title="--size-${size}">
-              <div class="data">--size-${size} (${size / 4}rem)</div>
-              <div class="square" style="--width: var(--size-${size});"></div>
-            </div>
-          `)}
-        <p>There are also some special sizes:</p>
-        <div class="spacer-wrapper" title="--size-0">
-          <div class="data">--size-0 (0px)</div>
-          <div class="square" style="--width: var(--size-0);"></div>
-        </div>
-        <div class="spacer-wrapper" title="--size-px">
-          <div class="data">--size-px (1px)</div>
-          <div class="square" style="--width: var(--size-px);"></div>
-        </div>
-        <div class="spacer-wrapper" title="--size-full">
-          <div class="data">--size-full (100%)</div>
-          <div class="square" style="--width: var(--size-full);"></div>
-        </div>
-        <div class="spacer-wrapper" title="--size-screen">
-          <div class="data">--size-screen (100vw)</div>
-          <div class="square" style="--width: var(--size-screen); margin-left: -8px; margin-right: -8px; box-sizing: border-box;"></div>
-        </div>
-        <div class="spacer-wrapper" title="--size-min">
-          <div class="data">--size-min (min-content)</div>
-          <div class="square" style="--width: var(--size-min); height: auto;">Here are some words</div>
-        </div>
-        <div class="spacer-wrapper" title="--size-max">
-          <div class="data">--size-max (max-content)</div>
-          <div class="square" style="--width: var(--size-max); height: auto;">Here are some words</div>
-        </div>
-        <h3 id="maxwidth"><a href="#maxwidth">Max width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        <p>You can use the <code>max-width</code> units to set the maximum width on elements.</p>
-        <p>All of the examples below have their width set to 100%, but they have one of the <code>max-width</code> units applied to their CSS <code>max-width</code>.</p>
-        ${widths.map(width => html`
-            <div class="spacer-wrapper" title="--max-width-${width}">
-              <div class="data">--max-width-${width}</div>
-              <div class="square" style="--width: var(--size-full); max-width: var(--max-width-${width}); background-color: var(--color-pea)"></div>
-            </div>
-          `)}
-        <h2 id="text"><a href="#text">Text</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <h3 id="fontsize"><a href="#fontsize">Font size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        <p><code>font-size-0</code> is 1rem.</p>
-        ${fontSizes.map(s => html`
-          <div class="text-spec" title="--font-size-${s}" style="font-family: var(--font-family-mono); font-size: var(--font-size-${s});">font-size-${s}</div>
-        `)}
-        <h3 id="fontfamily"><a href="#fontfamily">Font family</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        ${fontFamilies.map(f => html`
-          <div class="text-spec" title="--font-family-${f}" style="font-family: var(--font-family-${f});">font-family-${f}</div>
-        `)}
-        <h3 id="fontweight"><a href="#fontweight">Font weight</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        ${fontWeights.map(w => html`
-          <div class="text-spec" title="--font-weight-${w}" style="font-weight: var(--font-weight-${w});">font-weight-${w}</div>
-        `)}
-        <h3 id="lineheight"><a href="#lineheight">Line height</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        <p><code>line-height-1</code> sets the line height to 1; <code>line-height-normal</code> is 1.5.</p>
-        ${lineHeights.map(l => html`
-          <div class="text-spec" title="--line-height-${l}" style="background-color: var(--color-yellow-300); line-height: var(--line-height-${l});">line-height-${l}</div>
-        `)}
-        <h3 id="letterspacing"><a href="#letterspacing">Letter spacing</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        ${letterSpacings.map(ls => html`
-          <div class="text-spec" title="--letter-spacing-${ls}" style="letter-spacing: var(--letter-spacing-${ls});">letter-spacing-${ls}</div>
-        `)}
-        <h3 id="paragraphwidth"><a href="#paragraphwidth">Paragraph width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
-        <p>Each <code>paragraph</code> unit is <code>40ch</code> wider than the previous.</p>
-        <p>Here, each example uses one of the <code>paragraph</code> units as its max width. <code>paragraph-normal</code> is used as the max with for paragraphs on this page.</p>
-        ${paragraphWidths.map(p => html`
-          <div class="text-spec" title="--paragraph-${p}" style="background-color: var(--color-salmon-100); max-width: var(--paragraph-${p});">paragraph-${p}</div>
-        `)}
-        <h2 id="shadow"><a href="#shadow">Shadow</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <p>There are ${elevations.length} different elevations.</p>
-        ${elevations.map(e => html`
-          <div class="card" title="--elevation-${e}" style="box-shadow: var(--elevation-${e})">elevation-${e}</div>
-          `)}
-        <h2 id="animation"><a href="#animation">Animation</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <pre>
-          <code>.animated {
+  <h2 id="layout"><a href="#layout">Layout</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+  <h3 id="size"><a href="#size">Size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <p><code>size</code> variables have the shape <code>--size-[unit]</code>.</p>
+  <p>Each <code>size</code> unit is equal to <code>0.25rem</code>. Divide the size unit number by 4 to determine how
+    many rem it is.</p>
+  <p>The numerical size units are: <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>,
+    <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, <code>12</code>,
+    <code>14</code>, <code>16</code>, <code>20</code>, <code>24</code>, <code>28</code>, <code>32</code>,
+    <code>36</code>, <code>40</code>, <code>44</code>, <code>48</code>, <code>52</code>, <code>56</code>,
+    <code>60</code>, <code>64</code>, <code>72</code>, <code>80</code>, and <code>96</code>.
+  </p>
+  <p><code>size</code> units below shown here as the width of a box, but can also be used for padding, margins, heights 
+    -- any <code>px</code> measurement.
+  </p>
+  <div class="spacer-wrapper" title="--size-1">
+    <div class="data">--size-1 (0.25rem)</div>
+    <div class="square" style="--width: var(--size-1);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-2">
+    <div class="data">--size-2 (0.5rem)</div>
+    <div class="square" style="--width: var(--size-2);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-3">
+    <div class="data">--size-3 (0.75rem)</div>
+    <div class="square" style="--width: var(--size-3);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-4">
+    <div class="data">--size-4 (1rem)</div>
+    <div class="square" style="--width: var(--size-4);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-5">
+    <div class="data">--size-5 (1.25rem)</div>
+    <div class="square" style="--width: var(--size-5);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-6">
+    <div class="data">--size-6 (1.5rem)</div>
+    <div class="square" style="--width: var(--size-6);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-7">
+    <div class="data">--size-7 (1.75rem)</div>
+    <div class="square" style="--width: var(--size-7);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-8">
+    <div class="data">--size-8 (2rem)</div>
+    <div class="square" style="--width: var(--size-8);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-9">
+    <div class="data">--size-9 (2.25rem)</div>
+    <div class="square" style="--width: var(--size-9);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-10">
+    <div class="data">--size-10 (2.5rem)</div>
+    <div class="square" style="--width: var(--size-10);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-11">
+    <div class="data">--size-11 (2.75rem)</div>
+    <div class="square" style="--width: var(--size-11);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-12">
+    <div class="data">--size-12 (3rem)</div>
+    <div class="square" style="--width: var(--size-12);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-14">
+    <div class="data">--size-14 (3.5rem)</div>
+    <div class="square" style="--width: var(--size-14);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-16">
+    <div class="data">--size-16 (4rem)</div>
+    <div class="square" style="--width: var(--size-16);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-20">
+    <div class="data">--size-20 (5rem)</div>
+    <div class="square" style="--width: var(--size-20);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-24">
+    <div class="data">--size-24 (6rem)</div>
+    <div class="square" style="--width: var(--size-24);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-28">
+    <div class="data">--size-28 (7rem)</div>
+    <div class="square" style="--width: var(--size-28);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-32">
+    <div class="data">--size-32 (8rem)</div>
+    <div class="square" style="--width: var(--size-32);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-36">
+    <div class="data">--size-36 (9rem)</div>
+    <div class="square" style="--width: var(--size-36);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-40">
+    <div class="data">--size-40 (10rem)</div>
+    <div class="square" style="--width: var(--size-40);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-44">
+    <div class="data">--size-44 (11rem)</div>
+    <div class="square" style="--width: var(--size-44);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-48">
+    <div class="data">--size-48 (12rem)</div>
+    <div class="square" style="--width: var(--size-48);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-52">
+    <div class="data">--size-52 (13rem)</div>
+    <div class="square" style="--width: var(--size-52);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-56">
+    <div class="data">--size-56 (14rem)</div>
+    <div class="square" style="--width: var(--size-56);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-60">
+    <div class="data">--size-60 (15rem)</div>
+    <div class="square" style="--width: var(--size-60);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-64">
+    <div class="data">--size-64 (16rem)</div>
+    <div class="square" style="--width: var(--size-64);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-72">
+    <div class="data">--size-72 (18rem)</div>
+    <div class="square" style="--width: var(--size-72);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-80">
+    <div class="data">--size-80 (20rem)</div>
+    <div class="square" style="--width: var(--size-80);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-96">
+    <div class="data">--size-96 (24rem)</div>
+    <div class="square" style="--width: var(--size-96);"></div>
+  </div>
+  <p>There are also some special size units:</p>
+  <div class="spacer-wrapper" title="--size-0">
+    <div class="data">--size-0 (0px)</div>
+    <div class="square" style="--width: var(--size-0);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-px">
+    <div class="data">--size-px (1px)</div>
+    <div class="square" style="--width: var(--size-px);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-full">
+    <div class="data">--size-full (100%)</div>
+    <div class="square" style="--width: var(--size-full);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-screen">
+    <div class="data">--size-screen (100vw)</div>
+    <div class="square"
+      style="--width: var(--size-screen); margin-left: calc(-1 * var(--body-margin)); margin-right: calc(-1 * var(--body-margin)); box-sizing: border-box;"></div>
+  </div>
+  <div class="spacer-wrapper" title="--size-min">
+    <div class="data">--size-min (min-content)</div>
+    <div class="square" style="--width: var(--size-min); height: auto;">Here are some words</div>
+  </div>
+  <div class="spacer-wrapper" title="--size-max">
+    <div class="data">--size-max (max-content)</div>
+    <div class="square" style="--width: var(--size-max); height: auto;">Here are some words</div>
+  </div>
+  <h3 id="maxwidth"><a href="#maxwidth">Max width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <p>You can use the <code>max-width</code> units to set the maximum width on elements.</p>
+  <p><code>max-width</code> variables have the shape <code>--max-width-[unit]</code>.</p>
+  <p> The possible max-width units are (in order of smallest to largest): <code>xs</code>, <code>sm</code>,
+    <code>md</code>, <code>lg</code>, <code>xl</code>, <code>2xl</code>, <code>3xl</code>, <code>4xl</code>,
+    <code>5xl</code>, <code>6xl</code>, and <code>7xl</code>.
+  </p>
+  <p>All of the examples below have their width set to 100%, but they have one of the <code>max-width</code> units
+    applied to their CSS <code>max-width</code>.</p>
+  <div class="spacer-wrapper" title="--max-width-xs">
+    <div class="data">--max-width-xs</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-xs);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-sm">
+    <div class="data">--max-width-sm</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-sm);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-md">
+    <div class="data">--max-width-md</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-md);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-lg">
+    <div class="data">--max-width-lg</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-lg);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-xl">
+    <div class="data">--max-width-xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-2xl">
+    <div class="data">--max-width-2xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-2xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-3xl">
+    <div class="data">--max-width-3xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-3xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-4xl">
+    <div class="data">--max-width-4xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-4xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-5xl">
+    <div class="data">--max-width-5xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-5xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-6xl">
+    <div class="data">--max-width-6xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-6xl);"></div>
+  </div>
+  <div class="spacer-wrapper" title="--max-width-7xl">
+    <div class="data">--max-width-7xl</div>
+    <div class="square pea" style="--width: var(--size-full); max-width: var(--max-width-7xl);"></div>
+  </div>
+  <h2 id="text"><a href="#text">Text</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+  <h3 id="fontsize"><a href="#fontsize">Font size</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <p><code>font-size-0</code> is 1rem.</p>
+  <div class="text-spec mono" title="--font-size-000" style="font-size: var(--font-size-000);">font-size-000</div>
+  <div class="text-spec mono" title="--font-size-00" style="font-size: var(--font-size-00);">font-size-00</div>
+  <div class="text-spec mono" title="--font-size-0" style="font-size: var(--font-size-0);">font-size-0</div>
+  <div class="text-spec mono" title="--font-size-1" style="font-size: var(--font-size-1);">font-size-1</div>
+  <div class="text-spec mono" title="--font-size-2" style="font-size: var(--font-size-2);">font-size-2</div>
+  <div class="text-spec mono" title="--font-size-3" style="font-size: var(--font-size-3);">font-size-3</div>
+  <div class="text-spec mono" title="--font-size-4" style="font-size: var(--font-size-4);">font-size-4</div>
+  <div class="text-spec mono" title="--font-size-5" style="font-size: var(--font-size-5);">font-size-5</div>
+  <div class="text-spec mono" title="--font-size-6" style="font-size: var(--font-size-6);">font-size-6</div>
+  <div class="text-spec mono" title="--font-size-7" style="font-size: var(--font-size-7);">font-size-7</div>
+  <div class="text-spec mono" title="--font-size-8" style="font-size: var(--font-size-8);">font-size-8</div>
+  <div class="text-spec mono" title="--font-size-9" style="font-size: var(--font-size-9);">font-size-9</div>
+  <div class="text-spec mono" title="--font-size-10" style="font-size: var(--font-size-10);">font-size-10</div>
+  <h3 id="fontfamily"><a href="#fontfamily">Font family</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <div class="text-spec" title="--font-family-sans" style="font-family: var(--font-family-sans);">font-family-sans</div>
+  <div class="text-spec" title="--font-family-serif" style="font-family: var(--font-family-serif);">font-family-serif</div>
+  <div class="text-spec" title="--font-family-mono" style="font-family: var(--font-family-mono);">font-family-mono</div>
+  <h3 id="fontweight"><a href="#fontweight">Font weight</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <div class="text-spec" title="--font-weight-light" style="font-weight: var(--font-weight-light);">font-weight-light</div>
+  <div class="text-spec" title="--font-weight-regular" style="font-weight: var(--font-weight-regular);"> font-weight-regular</div>
+  <div class="text-spec" title="--font-weight-medium" style="font-weight: var(--font-weight-medium);"> font-weight-medium</div>
+  <div class="text-spec" title="--font-weight-semibold" style="font-weight: var(--font-weight-semibold);"> font-weight-semibold</div>
+  <div class="text-spec" title="--font-weight-bold" style="font-weight: var(--font-weight-bold);">font-weight-bold</div>
+  <div class="text-spec" title="--font-weight-black" style="font-weight: var(--font-weight-black);">font-weight-black</div>
+  <h3 id="lineheight"><a href="#lineheight">Line height</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <p><code>line-height-1</code> sets the line height to 1; <code>line-height-normal</code> is 1.5.</p>
+  <div class="text-spec yellow" title="--line-height-1" style="line-height: var(--line-height-1);">line-height-1</div>
+  <div class="text-spec yellow" title="--line-height-xs" style="line-height: var(--line-height-xs);">line-height-xs</div>
+  <div class="text-spec yellow" title="--line-height-sm" style="line-height: var(--line-height-sm);">line-height-sm</div>
+  <div class="text-spec yellow" title="--line-height-normal" style="line-height: var(--line-height-normal);">line-height-normal
+  </div>
+  <div class="text-spec yellow" title="--line-height-lg" style="line-height: var(--line-height-lg);">line-height-lg</div>
+  <div class="text-spec yellow" title="--line-height-xl" style="line-height: var(--line-height-xl);">line-height-xl</div>
+  <h3 id="letterspacing"><a href="#letterspacing">Letter spacing</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <div class="text-spec" title="--letter-spacing-000" style="letter-spacing: var(--letter-spacing-000);">
+    letter-spacing-000</div>
+  <div class="text-spec" title="--letter-spacing-00" style="letter-spacing: var(--letter-spacing-00);">letter-spacing-00</div>
+  <div class="text-spec" title="--letter-spacing-0" style="letter-spacing: var(--letter-spacing-0);">letter-spacing-0</div>
+  <div class="text-spec" title="--letter-spacing-1" style="letter-spacing: var(--letter-spacing-1);">letter-spacing-1</div>
+  <div class="text-spec" title="--letter-spacing-2" style="letter-spacing: var(--letter-spacing-2);">letter-spacing-2</div>
+  <div class="text-spec" title="--letter-spacing-3" style="letter-spacing: var(--letter-spacing-3);">letter-spacing-3</div>
+  <h3 id="paragraphwidth"><a href="#paragraphwidth">Paragraph width</a> <span class="top-link">(<a href="#top">top</a>)</span></h3>
+  <p>Each <code>paragraph</code> unit is <code>40ch</code> wider than the previous.</p>
+  <p>Here, each example uses one of the <code>paragraph</code> units as its max width. <code>paragraph-normal</code>
+    is used as the max with for paragraphs on this page.</p>
+  <div class="text-spec salmon" title="--paragraph-narrow" style="max-width: var(--paragraph-narrow);">paragraph-narrow</div>
+  <div class="text-spec salmon" title="--paragraph-normal" style="max-width: var(--paragraph-normal);">paragraph-normal</div>
+  <div class="text-spec salmon" title="--paragraph-wide" style="max-width: var(--paragraph-wide);">paragraph-wide</div>
+  <h2 id="shadow"><a href="#shadow">Shadow</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+  <p>There are 6 different elevations.</p>
+  <p class="darkmode-only">Note: the shadows in the following examples are not visible in dark mode.</p>
+  <div class="card" title="--elevation-1" style="box-shadow: var(--elevation-1);">elevation-1</div>
+  <div class="card" title="--elevation-2" style="box-shadow: var(--elevation-2);">elevation-2</div>
+  <div class="card" title="--elevation-3" style="box-shadow: var(--elevation-3);">elevation-3</div>
+  <div class="card" title="--elevation-4" style="box-shadow: var(--elevation-4);">elevation-4</div>
+  <div class="card" title="--elevation-5" style="box-shadow: var(--elevation-5);">elevation-5</div>
+  <div class="card" title="--elevation-6" style="box-shadow: var(--elevation-6);">elevation-6</div>
+  <h2 id="animation"><a href="#animation">Animation</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+  <pre><code>.animated {
   width: var(--size-24);
   height: var(--size-24);
   background-color: var(--color-brown-200);
@@ -468,41 +1583,46 @@
 .animated:hover, .animated:active, .animated:focus {
   transform: scale(0.5);
 }
-          </code>
-        </pre>
-        <p>Hover, tap or focus the circles below to see their animation behavior.</p>
-        ${animations.map(a => html`
-          <div class="animated-wrapper" title="--easing-${a}">
-            <div class="animated-title">${a}</div>
-            <button aria-label="--easing-${a}" class="animated animated-${a}"></button>
-          </div>
-        `)}
-        <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <p>The default <code>--radius</code> has a value of <code>0.5rem</code>.</p>
-        <div class="radius-container">
-          ${radii.map(r => {
-            const radiusName = r !== "" ? `-${r}`: "";
-            return html`
-              <div title="--radius${radiusName}" class="radius" style="border-radius: var(--radius${radiusName});">radius${radiusName}</div>  
-            `
-          })}
-        </div>
-        <h2 id="zindex"><a href="#zindex">Z-index</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
-        <p>There are 6 different z-index layers, plus a "top" layer.</p>
-        <p>In the example below, all 7 elements are absolutely positioned relative to their container. The order in which they overlap each other is determined by their <code>layer</code>.</p>
-        <div class="layers-container">
-          ${layers.map(l => html`
-            <div draggable class="layer layer-${l}" title="layer-${l}">layer-${l}</div>
-          `)}
-        </div>
-      `;
-    }
-    
-    render(
-      html`<${App} />`,
-      document.getElementById("root")
-    );
-  </script>
+</code></pre>
+  <p>Hover, tap or focus the circles below to see their animation behavior.</p>
+  <div class="animated-wrapper" title="--easing-standard">
+    <div class="animated-title">standard</div>
+    <button aria-label="--easing-standard" class="animated animated-standard"></button>
+  </div>
+  <div class="animated-wrapper" title="--easing-accelerate">
+    <div class="animated-title">accelerate</div>
+    <button aria-label="--easing-accelerate" class="animated animated-accelerate"></button>
+  </div>
+  <div class="animated-wrapper" title="--easing-decelerate">
+    <div class="animated-title">decelerate</div>
+    <button aria-label="--easing-decelerate" class="animated animated-decelerate"></button>
+  </div>
+  <h2 id="borderradius"><a href="#borderradius">Border radius</a> <span class="top-link">(<a href="#top">top</a>)</span>
+  </h2>
+  <p>The default <code>--radius</code> has a value of <code>0.5rem</code>.</p>
+  <div class="radius-container">
+    <div title="--radius-0" class="radius" style="border-radius: var(--radius-0);">radius-0</div>
+    <div title="--radius-sm" class="radius" style="border-radius: var(--radius-sm);">radius-sm</div>
+    <div title="--radius" class="radius" style="border-radius: var(--radius);">radius</div>
+    <div title="--radius-md" class="radius" style="border-radius: var(--radius-md);">radius-md</div>
+    <div title="--radius-lg" class="radius" style="border-radius: var(--radius-lg);">radius-lg</div>
+    <div title="--radius-xl" class="radius" style="border-radius: var(--radius-xl);">radius-xl</div>
+    <div title="--radius-2xl" class="radius" style="border-radius: var(--radius-2xl);">radius-2xl</div>
+    <div title="--radius-3xl" class="radius" style="border-radius: var(--radius-3xl);">radius-3xl</div>
+    <div title="--radius-round" class="radius" style="border-radius: var(--radius-round);">radius-round</div>
+  </div>
+  <h2 id="zindex"><a href="#zindex">Z-index</a> <span class="top-link">(<a href="#top">top</a>)</span></h2>
+  <p>There are 6 different z-index layers, plus a "top" layer.</p>
+  <p>In the example below, all 7 elements are absolutely positioned relative to their container. The order in which
+    they overlap each other is determined by their <code>layer</code>.</p>
+  <div class="layers-container">
+    <div draggable="true" class="layer layer-1" title="layer-1">layer-1</div>
+    <div draggable="true" class="layer layer-2" title="layer-2">layer-2</div>
+    <div draggable="true" class="layer layer-3" title="layer-3">layer-3</div>
+    <div draggable="true" class="layer layer-4" title="layer-4">layer-4</div>
+    <div draggable="true" class="layer layer-5" title="layer-5">layer-5</div>
+    <div draggable="true" class="layer layer-6" title="layer-6">layer-6</div>
+    <div draggable="true" class="layer layer-top" title="layer-top">layer-top</div>
+  </div>
 </body>
-
 </html>
